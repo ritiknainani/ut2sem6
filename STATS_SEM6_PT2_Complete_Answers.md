@@ -502,6 +502,219 @@ Multiple Correlation (R₁.₂₃) ← overall fit of regression
 
 ---
 
+## M4-Q6) Multiple Regression + R² + F-Test (Shipment Damage)
+
+**Given:** Data about weights (X₁), distances moved (X₂), and damage incurred (Y) for 10 shipments.
+
+| Ship | Y (Damage ₹000s) | X₁ (Weight Kg) | X₂ (Distance Km) |
+|------|------|------|------|
+| 1 | 12 | 17 | 10 |
+| 2 | 15 | 15 | 6 |
+| 3 | 14 | 15 | 10 |
+| 4 | 19 | 10 | 21 |
+| 5 | 8 | 13 | 13 |
+| 6 | 16 | 15 | 9 |
+| 7 | 15 | 11 | 25 |
+| 8 | 25 | 6 | 10 |
+| 9 | 10 | 15 | 8 |
+| 10 | 11 | 7 | 7 |
+
+**Find:** (a) Regression Ŷ = a + b₁X₁ + b₂X₂, (b) R², (c) F-test at α = 0.01 (F_critical = 9.55)
+
+---
+
+### Part (a): Fit the Regression Equation
+
+**Step 1: Computation Table (n = 10)**
+
+| i | Y | X₁ | X₂ | Y² | X₁² | X₂² | YX₁ | YX₂ | X₁X₂ |
+|---|---|----|----|-----|------|------|------|------|-------|
+| 1 | 12 | 17 | 10 | 144 | 289 | 100 | 204 | 120 | 170 |
+| 2 | 15 | 15 | 6 | 225 | 225 | 36 | 225 | 90 | 90 |
+| 3 | 14 | 15 | 10 | 196 | 225 | 100 | 210 | 140 | 150 |
+| 4 | 19 | 10 | 21 | 361 | 100 | 441 | 190 | 399 | 210 |
+| 5 | 8 | 13 | 13 | 64 | 169 | 169 | 104 | 104 | 169 |
+| 6 | 16 | 15 | 9 | 256 | 225 | 81 | 240 | 144 | 135 |
+| 7 | 15 | 11 | 25 | 225 | 121 | 625 | 165 | 375 | 275 |
+| 8 | 25 | 6 | 10 | 625 | 36 | 100 | 150 | 250 | 60 |
+| 9 | 10 | 15 | 8 | 100 | 225 | 64 | 150 | 80 | 120 |
+| 10 | 11 | 7 | 7 | 121 | 49 | 49 | 77 | 77 | 49 |
+| **Σ** | **145** | **124** | **119** | **2317** | **1664** | **1765** | **1715** | **1779** | **1428** |
+
+**Step 2: Compute Means**
+```
+Ȳ = 145/10 = 14.5
+X̄₁ = 124/10 = 12.4
+X̄₂ = 119/10 = 11.9
+```
+
+**Step 3: Normal Equations for Ŷ = a + b₁X₁ + b₂X₂**
+```
+ΣY   = na + b₁(ΣX₁) + b₂(ΣX₂)
+ΣYX₁ = a(ΣX₁) + b₁(ΣX₁²) + b₂(ΣX₁X₂)
+ΣYX₂ = a(ΣX₂) + b₁(ΣX₁X₂) + b₂(ΣX₂²)
+```
+
+Substituting:
+```
+145  = 10a  + 124b₁  + 119b₂       ... (i)
+1715 = 124a + 1664b₁ + 1428b₂      ... (ii)
+1779 = 119a + 1428b₁ + 1765b₂      ... (iii)
+```
+
+**Step 4: Eliminate 'a'**
+
+From (i): a = 14.5 - 12.4b₁ - 11.9b₂
+
+Multiply (i) by 12.4 and subtract from (ii):
+```
+(ii) - 12.4×(i):
+1715 - 1798 = (1664 - 1537.6)b₁ + (1428 - 1475.6)b₂
+-83 = 126.4b₁ - 47.6b₂              ... (iv)
+```
+
+Multiply (i) by 11.9 and subtract from (iii):
+```
+(iii) - 11.9×(i):
+1779 - 1725.5 = (1428 - 1475.6)b₁ + (1765 - 1416.1)b₂
+53.5 = -47.6b₁ + 348.9b₂            ... (v)
+```
+
+**Step 5: Solve equations (iv) and (v)**
+
+From (iv): b₁ = (-83 + 47.6b₂) / 126.4
+
+Substituting into (v):
+```
+-47.6 × (-83 + 47.6b₂) / 126.4 + 348.9b₂ = 53.5
+
+(3950.8 - 2265.76b₂) / 126.4 + 348.9b₂ = 53.5
+
+31.253 - 17.925b₂ + 348.9b₂ = 53.5
+
+330.975b₂ = 22.247
+
+b₂ = 22.247 / 330.975 = 0.0672
+```
+
+```
+b₁ = (-83 + 47.6 × 0.0672) / 126.4
+   = (-83 + 3.199) / 126.4
+   = -79.801 / 126.4
+   = -0.6314
+```
+
+```
+a = 14.5 - 12.4(-0.6314) - 11.9(0.0672)
+  = 14.5 + 7.829 - 0.800
+  = 21.529
+```
+
+```
+┌───────────────────────────────────────────────────┐
+│  Ŷ = 21.529 - 0.631 X₁ + 0.067 X₂               │
+└───────────────────────────────────────────────────┘
+```
+
+**Interpretation:**
+- For each 1 kg increase in weight → damage decreases by ₹631 (counterintuitive — heavier = sturdier packaging?)
+- For each 1 km increase in distance → damage increases by ₹67
+
+---
+
+### Part (b): Coefficient of Multiple Determination (R²)
+
+**Formula:**
+```
+R² = SSR / SST
+
+where:
+  SST = ΣY² - nȲ²                                     (Total Sum of Squares)
+  SSR = b₁(ΣYX₁ - nȲX̄₁) + b₂(ΣYX₂ - nȲX̄₂)          (Regression Sum of Squares)
+```
+
+**Step 1: Compute SST**
+```
+SST = ΣY² - nȲ²
+    = 2317 - 10 × (14.5)²
+    = 2317 - 2102.5
+    = 214.5
+```
+
+**Step 2: Compute SSR**
+```
+ΣYX₁ - nȲX̄₁ = 1715 - 10(14.5)(12.4) = 1715 - 1798 = -83
+ΣYX₂ - nȲX̄₂ = 1779 - 10(14.5)(11.9) = 1779 - 1725.5 = 53.5
+
+SSR = (-0.6314)(-83) + (0.0672)(53.5)
+    = 52.406 + 3.595
+    = 56.001
+```
+
+**Step 3: Compute R²**
+```
+R² = SSR / SST = 56.001 / 214.5 = 0.261
+
+┌───────────────────────────────────────┐
+│  R² = 0.261  (or 26.1%)              │
+│                                       │
+│  26.1% of variation in damage is      │
+│  explained by weight and distance.    │
+└───────────────────────────────────────┘
+```
+
+---
+
+### Part (c): F-Test for Significance of Regression
+
+**Hypotheses:**
+```
+H₀: b₁ = b₂ = 0   (Regression is NOT significant)
+H₁: At least one bᵢ ≠ 0  (Regression IS significant)
+```
+
+**Formula:**
+```
+         SSR / k            where k = number of independent variables = 2
+F = ─────────────────             n = number of observations = 10
+     SSE / (n - k - 1)           df₁ = k = 2,  df₂ = n - k - 1 = 7
+```
+
+**Step 1: Compute SSE**
+```
+SSE = SST - SSR = 214.5 - 56.001 = 158.499
+```
+
+**Step 2: Compute F-statistic**
+```
+F_calc = (56.001 / 2) / (158.499 / 7)
+       = 28.001 / 22.643
+       = 1.237
+```
+
+**Step 3: Decision**
+```
+F_calc    = 1.237
+F_critical = 9.55  (given, at α = 0.01, df₁ = 2, df₂ = 7)
+
+Since F_calc (1.237) < F_critical (9.55):
+
+┌──────────────────────────────────────────────────────────┐
+│  FAIL TO REJECT H₀                                      │
+│                                                          │
+│  The regression is NOT statistically significant         │
+│  at 1% level of significance.                           │
+│                                                          │
+│  The linear relationship between damage (Y) and          │
+│  weight (X₁), distance (X₂) is NOT significant.         │
+└──────────────────────────────────────────────────────────┘
+```
+
+> [!NOTE]
+> **Why is this result expected?** R² = 0.261 means only 26.1% of variance is explained, which is low. The F-test confirms the model doesn't fit well. In exam, always state conclusion clearly even if the regression is not significant.
+
+---
+
 # CHAPTER 5: ESTIMATION THEORY
 
 ---
