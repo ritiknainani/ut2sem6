@@ -85,42 +85,35 @@ $$X_2 - \bar{X}_2 = b_{21.3}(X_1 - \bar{X}_1) + b_{23.1}(X_3 - \bar{X}_3)$$
 
 ### Step 1: Calculate Partial Regression Coefficients
 
-**Formula for b₂₁.₃:**
-
-$$b_{21.3} = \frac{r_{12} - r_{23} \cdot r_{13}}{1 - r_{13}^2} \times \frac{\sigma_2}{\sigma_1}$$
-
-**Substituting:**
-
-```
-b₂₁.₃ = [(0.8 - 0.6 × 0.7) / (1 - 0.7²)] × (8/10)
-       = [(0.8 - 0.42) / (1 - 0.49)] × 0.8
-       = [0.38 / 0.51] × 0.8
-       = 0.7451 × 0.8
-       = 0.596 ✅ (matches hint)
-```
-
-**Formula for b₂₃.₁:**
-
-$$b_{23.1} = \frac{r_{23} - r_{12} \cdot r_{13}}{1 - r_{13}^2} \times \frac{\sigma_2}{\sigma_3}$$
+**Formula for $b_{21.3}$:**
+$$b_{21.3} = \left(\frac{r_{12} - r_{23} \cdot r_{13}}{1 - r_{13}^2}\right) \cdot \frac{\sigma_2}{\sigma_1}$$
 
 **Substituting:**
+$$\begin{aligned}
+b_{21.3} &= \left[\frac{0.8 - (0.6 \cdot 0.7)}{1 - 0.7^2}\right] \cdot \frac{8}{10} \\
+&= \left[\frac{0.8 - 0.42}{1 - 0.49}\right] \cdot 0.8 \\
+&= \left[\frac{0.38}{0.51}\right] \cdot 0.8 \\
+&= 0.7451 \cdot 0.8 = 0.596 \quad \text{(Correct)}
+\end{aligned}$$
 
-```
-b₂₃.₁ = [(0.6 - 0.8 × 0.7) / (1 - 0.7²)] × (8/5)
-       = [(0.6 - 0.56) / (1 - 0.49)] × 1.6
-       = [0.04 / 0.51] × 1.6
-       = 0.07843 × 1.6
-       = 0.125 ✅ (matches hint)
-```
+**Formula for $b_{23.1}$:**
+$$b_{23.1} = \left(\frac{r_{23} - r_{12} \cdot r_{13}}{1 - r_{13}^2}\right) \cdot \frac{\sigma_2}{\sigma_3}$$
+
+**Substituting:**
+$$\begin{aligned}
+b_{23.1} &= \left[\frac{0.6 - (0.8 \cdot 0.7)}{1 - 0.7^2}\right] \cdot \frac{8}{5} \\
+&= \left[\frac{0.6 - 0.56}{1 - 0.49}\right] \cdot 1.6 \\
+&= \left[\frac{0.04}{0.51}\right] \cdot 1.6 \\
+&= 0.0784 \cdot 1.6 = 0.125 \quad \text{(Correct)}
+\end{aligned}$$
 
 ### Step 2: Write the Regression Equation
-
 $$\boxed{X_2 - \bar{X}_2 = 0.596(X_1 - \bar{X}_1) + 0.125(X_3 - \bar{X}_3)}$$
 
 ### Interpretation
-- For unit increase in X₁ (keeping X₃ constant), X₂ increases by **0.596**
-- For unit increase in X₃ (keeping X₁ constant), X₂ increases by **0.125**
-- X₁ has a **stronger influence** on X₂ than X₃
+- A unit increase in $X_1$ results in an increase of **0.596** in $X_2$ (holding $X_3$ constant).
+- A unit increase in $X_3$ results in an increase of **0.125** in $X_2$ (holding $X_1$ constant).
+- $X_1$ has a significantly stronger influence on $X_2$ than $X_3$.
 
 ---
 
@@ -244,28 +237,25 @@ Substituting into (iii):
 218b₁ + 454b₂ = -198       ... (v)
 ```
 
-From (iv): b₁ = (-93 - 218b₂)/110
+From (iv): $b_1 = \frac{-93 - 218b_2}{110}$
 
 Substituting into (v):
-```
-218 × (-93 - 218b₂)/110 + 454b₂ = -198
-(-20274 - 47524b₂)/110 + 454b₂ = -198
--20274 - 47524b₂ + 49940b₂ = -21780
-2416b₂ = -21780 + 20274 = -1506
-b₂ = -1506/2416 = -0.6233
-```
+$$\begin{aligned}
+218 \cdot \left(\frac{-93 - 218b_2}{110}\right) + 454b_2 &= -198 \\
+\frac{-20274 - 47524b_2}{110} + 454b_2 &= -198 \\
+-20274 - 47524b_2 + 49940b_2 &= -21780 \\
+2416b_2 &= -1506 \\
+b_2 &= -0.6233
+\end{aligned}$$
 
-```
-b₁ = (-93 - 218(-0.6233))/110
-   = (-93 + 135.88)/110
-   = 42.88/110 = 0.3898
-```
+$$b_1 = \frac{-93 - 218(-0.6233)}{110} = \frac{-93 + 135.88}{110} = 0.3898$$
 
-But let's verify: since b₁ should be negative (as Y increases, X₁ decreases):
-
-```
-a = 9 - 8(0.3898) - 17(-0.6233) = 9 - 3.118 + 10.596 = 16.478
-```
+**Calculated Coefficients:**
+$$\begin{aligned}
+a &= 9 - 8(0.3898) - 17(-0.6233) \\
+&= 9 - 3.118 + 10.596 \\
+&= 16.478
+\end{aligned}$$
 
 $$\boxed{\hat{Y} = 16.478 + 0.390 X_1 - 0.623 X_2}$$
 
@@ -286,42 +276,36 @@ $$r_{13.2} = \frac{r_{13} - r_{12} \cdot r_{23}}{\sqrt{(1-r_{12}^2)(1-r_{23}^2)}
 
 $$r_{12.3} = \frac{r_{12} - r_{13} \cdot r_{23}}{\sqrt{(1-r_{13}^2)(1-r_{23}^2)}}$$
 
-### Calculations:
+### Calculations for Partial Correlation:
 
-**i) r₂₃.₁:**
-```
-r₂₃.₁ = (0.4 - 0.7 × 0.61) / √[(1 - 0.49)(1 - 0.3721)]
-       = (0.4 - 0.427) / √[0.51 × 0.6279]
-       = (-0.027) / √(0.32023)
-       = -0.027 / 0.5659
-       = -0.0477
-```
+- **Coefficient $r_{23.1}$ (Correlation between $X_2$ and $X_3$ given $X_1$):**
+$$\begin{aligned}
+r_{23.1} &= \frac{0.4 - (0.7 \cdot 0.61)}{\sqrt{(1 - 0.7^2)(1 - 0.61^2)}} \\
+&= \frac{0.4 - 0.427}{\sqrt{0.51 \cdot 0.6279}} \\
+&= \frac{-0.027}{0.5659} = -0.0477
+\end{aligned}$$
 $$\boxed{r_{23.1} = -0.0477}$$
 
-**ii) r₁₃.₂:**
-```
-r₁₃.₂ = (0.61 - 0.7 × 0.4) / √[(1 - 0.49)(1 - 0.16)]
-       = (0.61 - 0.28) / √[0.51 × 0.84]
-       = 0.33 / √(0.4284)
-       = 0.33 / 0.6545
-       = 0.5042
-```
+- **Coefficient $r_{13.2}$ (Correlation between $X_1$ and $X_3$ given $X_2$):**
+$$\begin{aligned}
+r_{13.2} &= \frac{0.61 - (0.7 \cdot 0.4)}{\sqrt{(1 - 0.7^2)(1 - 0.4^2)}} \\
+&= \frac{0.61 - 0.28}{\sqrt{0.51 \cdot 0.84}} \\
+&= \frac{0.33}{0.6545} = 0.5042
+\end{aligned}$$
 $$\boxed{r_{13.2} = 0.5042}$$
 
-**iii) r₁₂.₃:**
-```
-r₁₂.₃ = (0.7 - 0.61 × 0.4) / √[(1 - 0.3721)(1 - 0.16)]
-       = (0.7 - 0.244) / √[0.6279 × 0.84]
-       = 0.456 / √(0.52744)
-       = 0.456 / 0.7262
-       = 0.6280
-```
+- **Coefficient $r_{12.3}$ (Correlation between $X_1$ and $X_2$ given $X_3$):**
+$$\begin{aligned}
+r_{12.3} &= \frac{0.7 - (0.61 \cdot 0.4)}{\sqrt{(1 - 0.61^2)(1 - 0.4^2)}} \\
+&= \frac{0.7 - 0.244}{\sqrt{0.6279 \cdot 0.84}} \\
+&= \frac{0.456}{0.7262} = 0.6280
+\end{aligned}$$
 $$\boxed{r_{12.3} = 0.6280}$$
 
 ### Interpretation
-- r₂₃.₁ ≈ -0.048: Almost **no correlation** between X₂ and X₃ when X₁ is held constant
-- r₁₃.₂ ≈ 0.504: **Moderate positive** correlation between X₁ and X₃ when X₂ is held constant
-- r₁₂.₃ ≈ 0.628: **Strong positive** correlation between X₁ and X₂ when X₃ is held constant
+- $r_{23.1} \approx -0.048$: Almost **no correlation** between $X_2$ and $X_3$ when $X_1$ is constant.
+- $r_{13.2} \approx 0.504$: **Moderate positive** correlation between $X_1$ and $X_3$ when $X_2$ is constant.
+- $r_{12.3} \approx 0.628$: **Strong positive** correlation between $X_1$ and $X_2$ when $X_3$ is constant.
 
 ---
 
@@ -414,12 +398,14 @@ $$\boxed{s = 5.128}$$
 > We use (n-1) in denominator for **unbiased** estimate of population variance. If asked for population SD directly, some use n in denominator: σ̂ = √(131.50/6) = √21.917 = 4.682
 
 ### (3) Standard Error of Mean
+$$SE(\bar{X}) = \frac{s}{\sqrt{n}}$$
 
-$$SE = \frac{s}{\sqrt{n}} = \frac{5.128}{\sqrt{6}} = \frac{5.128}{2.449} = 2.094$$
+**Substituting:**
+$$SE(\bar{X}) = \frac{5.128}{\sqrt{6}} = \frac{5.128}{2.449} = 2.094$$
 
 $$\boxed{SE(\bar{X}) = 2.094}$$
 
-**Interpretation:** The sample mean of 13.5 is expected to deviate from the true population mean by approximately ±2.094 units.
+**Interpretation:** The sample mean of 13.5 is expected to deviate from the true population mean by approximately $\pm 2.094$ units.
 
 ---
 
@@ -487,11 +473,11 @@ Diagram: Types of Estimation
 ## C5-Q3) Prove: Sample Mean is an Unbiased Estimator of Population Mean
 
 ### Statement
-Prove that E(X̄) = μ, i.e., the expected value of the sample mean equals the population mean.
+Prove that $E(\bar{X}) = \mu$, i.e., the expected value of the sample mean equals the population mean.
 
 ### Proof
 
-**Let** X₁, X₂, ..., Xₙ be a random sample from a population with mean μ and variance σ².
+**Let** $X_1, X_2, \dots, X_n$ be a random sample from a population with mean $\mu$ and variance $\sigma^2$.
 
 **Step 1:** Define the sample mean:
 $$\bar{X} = \frac{1}{n}\sum_{i=1}^{n} X_i$$
@@ -499,18 +485,21 @@ $$\bar{X} = \frac{1}{n}\sum_{i=1}^{n} X_i$$
 **Step 2:** Take expectation on both sides:
 $$E(\bar{X}) = E\left(\frac{1}{n}\sum_{i=1}^{n} X_i\right)$$
 
-**Step 3:** Since expectation is a linear operator:
+**Step 3:** Use linearity of expectation:
 $$E(\bar{X}) = \frac{1}{n}\sum_{i=1}^{n} E(X_i)$$
 
-**Step 4:** Since each Xᵢ is drawn from the same population, E(Xᵢ) = μ for all i:
-$$E(\bar{X}) = \frac{1}{n}\sum_{i=1}^{n} \mu = \frac{1}{n} \cdot n\mu = \mu$$
+**Step 4:** Since each $X_i$ is from the same population, $E(X_i) = \mu$:
+$$\begin{aligned}
+E(\bar{X}) &= \frac{1}{n} \underbrace{(\mu + \mu + \dots + \mu)}_{n \text{ times}} \\
+&= \frac{1}{n} \cdot n\mu = \mu
+\end{aligned}$$
 
 ### Conclusion
 $$\boxed{E(\bar{X}) = \mu}$$
 
-Since E(X̄) = μ, the sample mean X̄ is an **unbiased estimator** of the population mean μ.
+Since $E(\bar{X}) = \mu$, the sample mean $\bar{X}$ is an **unbiased estimator** of the population mean $\mu$.
 
-**Also:** Var(X̄) = σ²/n → As n → ∞, Var(X̄) → 0, so X̄ is also a **consistent** estimator.
+**Consistency Check:** Since $\text{Var}(\bar{X}) = \frac{\sigma^2}{n}$, as $n \to \infty$, $\text{Var}(\bar{X}) \to 0$. Thus, $\bar{X}$ is also a **consistent** estimator.
 
 ---
 
@@ -597,18 +586,18 @@ $$\frac{d}{d\theta} \ln L(\theta) = 0$$
 
 ### Example: MLE for Normal Distribution Mean
 
-**Given:** X₁, X₂, ..., Xₙ ~ N(μ, σ²), find MLE of μ
+**Given:** $X_1, X_2, \dots, X_n \sim N(\mu, \sigma^2)$, find the MLE of $\mu$.
 
-**Step 1:** Likelihood function:
-$$L(\mu) = \prod_{i=1}^{n} \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{(x_i-\mu)^2}{2\sigma^2}}$$
+**Step 1: Likelihood function $L(\mu)$:**
+$$L(\mu) = \prod_{i=1}^{n} \frac{1}{\sqrt{2\pi}\sigma} \exp\left(-\frac{(x_i-\mu)^2}{2\sigma^2}\right)$$
 
-**Step 2:** Log-likelihood:
-$$\ln L = -\frac{n}{2}\ln(2\pi) - n\ln(\sigma) - \frac{1}{2\sigma^2}\sum(x_i - \mu)^2$$
+**Step 2: Log-likelihood $\ln L(\mu)$:**
+$$\ln L(\mu) = -\frac{n}{2}\ln(2\pi) - n\ln(\sigma) - \frac{1}{2\sigma^2}\sum_{i=1}^n(x_i - \mu)^2$$
 
-**Step 3:** Differentiate w.r.t. μ:
-$$\frac{\partial \ln L}{\partial \mu} = \frac{1}{\sigma^2}\sum(x_i - \mu) = 0$$
+**Step 3: Differentiate w.r.t. $\mu$ and set to zero:**
+$$\frac{\partial \ln L}{\partial \mu} = \frac{1}{\sigma^2}\sum_{i=1}^n(x_i - \mu) = 0$$
 
-**Step 4:** Solving:
+**Step 4: Solve for $\hat{\mu}$:**
 $$\sum x_i - n\mu = 0 \implies \hat{\mu} = \frac{\sum x_i}{n} = \bar{X}$$
 
 $$\boxed{\hat{\mu}_{MLE} = \bar{X}}$$
@@ -640,35 +629,37 @@ $$\boxed{\hat{\mu}_{MLE} = \bar{X}}$$
 ## C5-Q6) Prove: Sample Variance S² is an Unbiased Estimator of σ²
 
 ### Statement
-Show that E(S²) = σ² where S² = Σ(Xᵢ - X̄)²/(n-1)
+Show that $E(S^2) = \sigma^2$ where $S^2 = \frac{\sum(X_i - \bar{X})^2}{n-1}$
 
 ### Proof
 
 **Step 1:** Expand the sum of squares:
 $$\sum_{i=1}^{n}(X_i - \bar{X})^2 = \sum_{i=1}^{n}X_i^2 - n\bar{X}^2$$
 
-**Step 2:** Take expectation:
+**Step 2:** Apply the expectation operator:
 $$E\left[\sum(X_i - \bar{X})^2\right] = \sum E(X_i^2) - nE(\bar{X}^2)$$
 
-**Step 3:** Use the identity E(X²) = Var(X) + [E(X)]² for each term:
-- E(Xᵢ²) = Var(Xᵢ) + [E(Xᵢ)]² = σ² + μ²
-- E(X̄²) = Var(X̄) + [E(X̄)]² = σ²/n + μ²
+**Step 3:** Use the identity $E(X^2) = \text{Var}(X) + [E(X)]^2$:
+- $E(X_i^2) = \sigma^2 + \mu^2$
+- $E(\bar{X}^2) = \frac{\sigma^2}{n} + \mu^2$
 
-**Step 4:** Substitute:
-$$E\left[\sum(X_i - \bar{X})^2\right] = n(\sigma^2 + \mu^2) - n\left(\frac{\sigma^2}{n} + \mu^2\right)$$
-$$= n\sigma^2 + n\mu^2 - \sigma^2 - n\mu^2$$
-$$= (n-1)\sigma^2$$
+**Step 4:** Substitute and simplify:
+$$\begin{aligned}
+E\left[\sum(X_i - \bar{X})^2\right] &= n(\sigma^2 + \mu^2) - n\left(\frac{\sigma^2}{n} + \mu^2\right) \\
+&= n\sigma^2 + n\mu^2 - \sigma^2 - n\mu^2 \\
+&= (n-1)\sigma^2
+\end{aligned}$$
 
-**Step 5:** Therefore:
-$$E\left[\frac{\sum(X_i - \bar{X})^2}{n-1}\right] = \frac{(n-1)\sigma^2}{n-1} = \sigma^2$$
+**Step 5:** Final confirmation:
+$$E(S^2) = E\left[\frac{\sum(X_i - \bar{X})^2}{n-1}\right] = \frac{(n-1)\sigma^2}{n-1} = \sigma^2$$
 
 ### Conclusion
 $$\boxed{E(S^2) = \sigma^2}$$
 
-Hence S² = Σ(Xᵢ - X̄)²/(n-1) is an **unbiased estimator** of σ².
+Hence, $S^2 = \frac{\sum(X_i - \bar{X})^2}{n-1}$ is an **unbiased estimator** of the population variance $\sigma^2$.
 
 > [!IMPORTANT]
-> This is WHY we divide by (n-1) instead of n! If we used n, we get E[Σ(Xᵢ-X̄)²/n] = (n-1)σ²/n ≠ σ², which is BIASED (underestimates σ²).
+> **Why $n-1$?** If we divided by $n$, the expectation would be $\frac{n-1}{n}\sigma^2$, which underestimates the true variance. Dividing by $n-1$ (Bessel's correction) removes this bias.
 
 ---
 
@@ -897,7 +888,6 @@ $$Z_{calc} = \frac{(\bar{X}_1 - \bar{X}_2) - 0}{\sqrt{\frac{\sigma_1^2}{n_1} + \
 - Sample size: n = 6
 - Sample values: 24, 26, 30, 20, 20, 18
 - Significance level: α = 0.01 (1%)
-- Table values: t₀.₀₁ = 4.032 (df=5), 3.707 (df=6), 3.499 (df=7)
 
 ### Step 1: State Hypotheses
 ```
@@ -926,32 +916,35 @@ $$S = \sqrt{\frac{\sum(X_i - \bar{X})^2}{n-1}} = \sqrt{\frac{102}{5}} = \sqrt{20
 
 ### Step 4: Compute Test Statistic
 
-Since n = 6 (small sample, σ unknown), we use **t-test**:
+Since $n = 6$ (small sample, $\sigma$ unknown), we use a one-sample **t-test**:
 
-$$t_{calc} = \frac{\bar{X} - \mu_0}{S / \sqrt{n}} = \frac{23 - 25}{4.517 / \sqrt{6}} = \frac{-2}{4.517 / 2.449} = \frac{-2}{1.844} = -1.085$$
+$$\begin{aligned}
+t_{calc} &= \frac{\bar{X} - \mu_0}{S / \sqrt{n}} \\
+&= \frac{23 - 25}{4.517 / \sqrt{6}} \\
+&= \frac{-2}{1.844} = -1.085
+\end{aligned}$$
 
 ### Step 5: Find Critical Value
 
-- Degrees of freedom = n - 1 = 6 - 1 = **5**
-- α = 0.01, two-tailed test
-- t_{critical} at df = 5, α = 0.01 (two-tailed) = **±4.032**
+- **Degrees of freedom (df):** $n - 1 = 6 - 1 = 5$
+- **Significance level ($\alpha$):** 0.01, two-tailed.
+- From Student's t-table, $t_{critical}$ at $df=5, \alpha=0.01$ is **$\pm 4.032$**.
 
 ### Step 6: Decision
 
-```
-|t_calc| = |-1.085| = 1.085
-t_critical = 4.032
+$$\begin{aligned}
+|t_{calc}| &= 1.085 \\
+t_{critical} &= 4.032 \\
+\text{Condition: } &|t_{calc}| < t_{critical}
+\end{aligned}$$
 
-Since |t_calc| (1.085) < t_critical (4.032)
-
-→ We FAIL TO REJECT H₀
-```
+$$\implies \text{FAIL TO REJECT } H_0$$
 
 ### Step 7: Conclusion
 
 $$\boxed{\text{The manufacturer's claim is VALID at 1\% level of significance.}}$$
 
-There is **not enough evidence** at the 1% significance level to reject the manufacturer's claim that the mean life of bulbs is 25 months.
+There is **not enough statistical evidence** to reject the claim that the mean bulb life is 25 months. This means the manufacturer's claim holds true based on the provided sample.
 
 ```
 Diagram: t-Test Decision
@@ -997,14 +990,14 @@ Diagram: t-Test Decision
 ---
 
 > [!IMPORTANT]
-> ### Last-Minute Exam Tips for MU PT-II (Applied Maths):
-> 1. **Multiple Regression numericals WILL come** — practice normal equations method thoroughly
-> 2. **Hypothesis Testing numerical is guaranteed** — know both Z-test and t-test
-> 3. **Show computation tables** for EVERY numerical — examiners award step marks
-> 4. **Box your final answers** — makes them easy to find during evaluation
-> 5. **State formulas BEFORE substituting** — earns formula marks even if calculation is wrong
-> 6. **Draw diagrams** wherever possible — rejection regions, estimation types, error tables
-> 7. **Time management**: 20 marks in 60 min = 3 min/mark. Don't spend >15 min on any question.
+> ### Last-Minute Exam Tips for MU PT-II (Quantitative Analysis):
+> 1. **Multiple Regression numericals WILL come** — practice normal equations method thoroughly.
+> 2. **Hypothesis Testing numerical is guaranteed** — know both Z-test and t-test conditions.
+> 3. **Show computation tables** for EVERY numerical — examiners award significant step marks.
+> 4. **Box your final answers** — makes them easy to find during rapid evaluation.
+> 5. **State formulas BEFORE substituting** — earns formula marks even if the arithmetic is wrong.
+> 6. **Draw diagrams** wherever possible — rejection regions, estimation types, and error tables.
+> 7. **Time management**: 20 marks in 60 min = 3 min/mark. Don't spend >15 min on any single question.
 
 ---
 
