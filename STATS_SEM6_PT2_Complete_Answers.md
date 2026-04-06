@@ -81,39 +81,80 @@
 
 ### Formula for Multiple Regression Equation of X₂ on X₁ and X₃:
 
-$$X_2 - \bar{X}_2 = b_{21.3}(X_1 - \bar{X}_1) + b_{23.1}(X_3 - \bar{X}_3)$$
+```
+X₂ - X̄₂ = b₂₁.₃ (X₁ - X̄₁) + b₂₃.₁ (X₃ - X̄₃)
+```
 
 ### Step 1: Calculate Partial Regression Coefficients
 
-**Formula for $b_{21.3}$:**
-$$b_{21.3} = \left(\frac{r_{12} - r_{23} \cdot r_{13}}{1 - r_{13}^2}\right) \cdot \frac{\sigma_2}{\sigma_1}$$
+**Formula for b₂₁.₃:**
+
+```
+                r₁₂ - r₂₃ × r₁₃       σ₂
+b₂₁.₃  =  ────────────────────── × ────
+                1 - r₁₃²               σ₁
+```
 
 **Substituting:**
-$$\begin{aligned}
-b_{21.3} &= \left[\frac{0.8 - (0.6 \cdot 0.7)}{1 - 0.7^2}\right] \cdot \frac{8}{10} \\
-&= \left[\frac{0.8 - 0.42}{1 - 0.49}\right] \cdot 0.8 \\
-&= \left[\frac{0.38}{0.51}\right] \cdot 0.8 \\
-&= 0.7451 \cdot 0.8 = 0.596 \quad \text{(Correct)}
-\end{aligned}$$
 
-**Formula for $b_{23.1}$:**
-$$b_{23.1} = \left(\frac{r_{23} - r_{12} \cdot r_{13}}{1 - r_{13}^2}\right) \cdot \frac{\sigma_2}{\sigma_3}$$
+```
+         0.8 - (0.6 × 0.7)       8
+b₂₁.₃ = ──────────────────── × ────
+           1 - (0.7)²            10
+
+         0.8 - 0.42
+       = ──────────── × 0.8
+          1 - 0.49
+
+         0.38
+       = ────── × 0.8
+         0.51
+
+       = 0.7451 × 0.8
+
+       = 0.596  ✅ (matches hint)
+```
+
+**Formula for b₂₃.₁:**
+
+```
+                r₂₃ - r₁₂ × r₁₃       σ₂
+b₂₃.₁  =  ────────────────────── × ────
+                1 - r₁₃²               σ₃
+```
 
 **Substituting:**
-$$\begin{aligned}
-b_{23.1} &= \left[\frac{0.6 - (0.8 \cdot 0.7)}{1 - 0.7^2}\right] \cdot \frac{8}{5} \\
-&= \left[\frac{0.6 - 0.56}{1 - 0.49}\right] \cdot 1.6 \\
-&= \left[\frac{0.04}{0.51}\right] \cdot 1.6 \\
-&= 0.0784 \cdot 1.6 = 0.125 \quad \text{(Correct)}
-\end{aligned}$$
+
+```
+         0.6 - (0.8 × 0.7)       8
+b₂₃.₁ = ──────────────────── × ────
+           1 - (0.7)²             5
+
+         0.6 - 0.56
+       = ──────────── × 1.6
+          1 - 0.49
+
+         0.04
+       = ────── × 1.6
+         0.51
+
+       = 0.07843 × 1.6
+
+       = 0.125  ✅ (matches hint)
+```
 
 ### Step 2: Write the Regression Equation
-$$\boxed{X_2 - \bar{X}_2 = 0.596(X_1 - \bar{X}_1) + 0.125(X_3 - \bar{X}_3)}$$
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  X₂ - X̄₂ = 0.596 (X₁ - X̄₁) + 0.125 (X₃ - X̄₃)              │
+└─────────────────────────────────────────────────────────────────┘
+```
 
 ### Interpretation
-- A unit increase in $X_1$ results in an increase of **0.596** in $X_2$ (holding $X_3$ constant).
-- A unit increase in $X_3$ results in an increase of **0.125** in $X_2$ (holding $X_1$ constant).
-- $X_1$ has a significantly stronger influence on $X_2$ than $X_3$.
+- A unit ↑ in X₁ (keeping X₃ constant) → X₂ increases by **0.596**
+- A unit ↑ in X₃ (keeping X₁ constant) → X₂ increases by **0.125**
+- X₁ has a **significantly stronger influence** on X₂ than X₃
 
 ---
 
@@ -139,36 +180,43 @@ $$\boxed{X_2 - \bar{X}_2 = 0.596(X_1 - \bar{X}_1) + 0.125(X_3 - \bar{X}_3)}$$
 ### Step 2: Compute Means
 
 ```
-X̄₁ = 20/4 = 5,  X̄₂ = 24/4 = 6,  X̄₃ = 28/4 = 7
+X̄₁ = 20/4 = 5,   X̄₂ = 24/4 = 6,   X̄₃ = 28/4 = 7
 ```
 
 ### Step 3: Normal Equations for X₁ = a + b₁X₂ + b₂X₃
 
 The three normal equations are:
 ```
-ΣX₁ = na + b₁ΣX₂ + b₂ΣX₃
-ΣX₁X₂ = aΣX₂ + b₁ΣX₂² + b₂ΣX₂X₃
-ΣX₁X₃ = aΣX₃ + b₁ΣX₂X₃ + b₂ΣX₃²
+ΣX₁   = na + b₁(ΣX₂) + b₂(ΣX₃)
+ΣX₁X₂ = a(ΣX₂) + b₁(ΣX₂²) + b₂(ΣX₂X₃)
+ΣX₁X₃ = a(ΣX₃) + b₁(ΣX₂X₃) + b₂(ΣX₃²)
 ```
 
-Substituting:
+Substituting values:
 ```
-20 = 4a + 24b₁ + 28b₂       ... (i)
-140 = 24a + 164b₁ + 188b₂    ... (ii)
-160 = 28a + 188b₁ + 216b₂    ... (iii)
+20  = 4a  + 24b₁  + 28b₂       ... (i)
+140 = 24a + 164b₁ + 188b₂      ... (ii)
+160 = 28a + 188b₁ + 216b₂      ... (iii)
 ```
 
 ### Step 4: Solve the System
 
-From equation (i): a = (20 - 24b₁ - 28b₂)/4 = 5 - 6b₁ - 7b₂
+From equation (i):
+```
+a = (20 - 24b₁ - 28b₂) / 4 = 5 - 6b₁ - 7b₂
+```
 
 **Note:** In this dataset, X₁, X₂, X₃ are in perfect linear relationship: X₁ = X₂ - 1 = X₃ - 2
 
 Substituting a = 5 - 6b₁ - 7b₂ into (ii) and (iii) and solving simultaneously:
 
-After solving: **b₁ = 1, b₂ = 0, a = -1** (or equivalently b₁ = 0, b₂ = 1, a = -5 — both valid due to perfect multicollinearity)
+After solving: **b₁ = 1, b₂ = 0, a = -1**
 
-$$\boxed{X_1 = -1 + 1 \cdot X_2 + 0 \cdot X_3 = X_2 - 1}$$
+```
+┌──────────────────────────────────────────┐
+│  X₁ = -1 + 1 × X₂ + 0 × X₃ = X₂ - 1   │
+└──────────────────────────────────────────┘
+```
 
 > [!NOTE]
 > Since all three variables are perfectly linearly related (X₁ = X₂ - 1 = X₃ - 2), there is perfect multicollinearity. Show all normal equation steps in exam for full marks.
@@ -180,7 +228,7 @@ $$\boxed{X_1 = -1 + 1 \cdot X_2 + 0 \cdot X_3 = X_2 - 1}$$
 **Given Data:**
 
 | Y | 4 | 6 | 7 | 9 | 13 | 15 |
-|---|---|---|---|---|----|----|
+|---|---|---|---|---|----|----| 
 | X₁ | 15 | 12 | 8 | 6 | 4 | 3 |
 | X₂ | 30 | 24 | 20 | 14 | 10 | 4 |
 
@@ -199,22 +247,22 @@ $$\boxed{X_1 = -1 + 1 \cdot X_2 + 0 \cdot X_3 = X_2 - 1}$$
 ### Step 2: Compute Means
 
 ```
-Ȳ = 54/6 = 9,  X̄₁ = 48/6 = 8,  X̄₂ = 102/6 = 17
+Ȳ = 54/6 = 9,   X̄₁ = 48/6 = 8,   X̄₂ = 102/6 = 17
 ```
 
 ### Step 3: Normal Equations for Ŷ = a + b₁X₁ + b₂X₂
 
 ```
-ΣY = na + b₁ΣX₁ + b₂ΣX₂
-ΣYX₁ = aΣX₁ + b₁ΣX₁² + b₂ΣX₁X₂
-ΣYX₂ = aΣX₂ + b₁ΣX₁X₂ + b₂ΣX₂²
+ΣY   = na + b₁(ΣX₁) + b₂(ΣX₂)
+ΣYX₁ = a(ΣX₁) + b₁(ΣX₁²) + b₂(ΣX₁X₂)
+ΣYX₂ = a(ΣX₂) + b₁(ΣX₁X₂) + b₂(ΣX₂²)
 ```
 
 Substituting:
 ```
-54 = 6a + 48b₁ + 102b₂         ... (i)
-339 = 48a + 494b₁ + 1034b₂      ... (ii)
-720 = 102a + 1034b₁ + 2188b₂    ... (iii)
+54  = 6a   + 48b₁   + 102b₂       ... (i)
+339 = 48a  + 494b₁  + 1034b₂      ... (ii)
+720 = 102a + 1034b₁ + 2188b₂      ... (iii)
 ```
 
 ### Step 4: Solve
@@ -226,7 +274,8 @@ Substituting into (ii):
 339 = 48(9 - 8b₁ - 17b₂) + 494b₁ + 1034b₂
 339 = 432 - 384b₁ - 816b₂ + 494b₁ + 1034b₂
 339 = 432 + 110b₁ + 218b₂
-110b₁ + 218b₂ = -93        ... (iv)
+
+∴ 110b₁ + 218b₂ = -93        ... (iv)
 ```
 
 Substituting into (iii):
@@ -234,30 +283,45 @@ Substituting into (iii):
 720 = 102(9 - 8b₁ - 17b₂) + 1034b₁ + 2188b₂
 720 = 918 - 816b₁ - 1734b₂ + 1034b₁ + 2188b₂
 720 = 918 + 218b₁ + 454b₂
-218b₁ + 454b₂ = -198       ... (v)
+
+∴ 218b₁ + 454b₂ = -198       ... (v)
 ```
 
-From (iv): $b_1 = \frac{-93 - 218b_2}{110}$
+From (iv): b₁ = (-93 - 218b₂) / 110
 
 Substituting into (v):
-$$\begin{aligned}
-218 \cdot \left(\frac{-93 - 218b_2}{110}\right) + 454b_2 &= -198 \\
-\frac{-20274 - 47524b_2}{110} + 454b_2 &= -198 \\
--20274 - 47524b_2 + 49940b_2 &= -21780 \\
-2416b_2 &= -1506 \\
-b_2 &= -0.6233
-\end{aligned}$$
+```
+218 × (-93 - 218b₂)/110 + 454b₂ = -198
 
-$$b_1 = \frac{-93 - 218(-0.6233)}{110} = \frac{-93 + 135.88}{110} = 0.3898$$
+(-20274 - 47524b₂) / 110 + 454b₂ = -198
 
-**Calculated Coefficients:**
-$$\begin{aligned}
-a &= 9 - 8(0.3898) - 17(-0.6233) \\
-&= 9 - 3.118 + 10.596 \\
-&= 16.478
-\end{aligned}$$
+Multiply everything by 110:
+-20274 - 47524b₂ + 49940b₂ = -21780
 
-$$\boxed{\hat{Y} = 16.478 + 0.390 X_1 - 0.623 X_2}$$
+2416b₂ = -21780 + 20274 = -1506
+
+b₂ = -1506 / 2416 = -0.6233
+```
+
+```
+b₁ = (-93 - 218 × (-0.6233)) / 110
+   = (-93 + 135.88) / 110
+   = 42.88 / 110
+   = 0.3898
+```
+
+Calculating a:
+```
+a = 9 - 8(0.3898) - 17(-0.6233)
+  = 9 - 3.118 + 10.596
+  = 16.478
+```
+
+```
+┌─────────────────────────────────────────────────┐
+│  Ŷ = 16.478 + 0.390 × X₁ - 0.623 × X₂         │
+└─────────────────────────────────────────────────┘
+```
 
 > [!IMPORTANT]
 > In exam: Always show (1) Computation table, (2) Normal equations, (3) Substitution steps, (4) Final boxed equation. Each step fetches marks.
@@ -270,42 +334,104 @@ $$\boxed{\hat{Y} = 16.478 + 0.390 X_1 - 0.623 X_2}$$
 
 ### Formulas:
 
-$$r_{23.1} = \frac{r_{23} - r_{12} \cdot r_{13}}{\sqrt{(1-r_{12}^2)(1-r_{13}^2)}}$$
+```
+            r₂₃ - r₁₂ × r₁₃
+r₂₃.₁ = ─────────────────────────────
+         √[(1 - r₁₂²)(1 - r₁₃²)]
 
-$$r_{13.2} = \frac{r_{13} - r_{12} \cdot r_{23}}{\sqrt{(1-r_{12}^2)(1-r_{23}^2)}}$$
+            r₁₃ - r₁₂ × r₂₃
+r₁₃.₂ = ─────────────────────────────
+         √[(1 - r₁₂²)(1 - r₂₃²)]
 
-$$r_{12.3} = \frac{r_{12} - r_{13} \cdot r_{23}}{\sqrt{(1-r_{13}^2)(1-r_{23}^2)}}$$
+            r₁₂ - r₁₃ × r₂₃
+r₁₂.₃ = ─────────────────────────────
+         √[(1 - r₁₃²)(1 - r₂₃²)]
+```
 
-### Calculations for Partial Correlation:
+### Calculations:
 
-- **Coefficient $r_{23.1}$ (Correlation between $X_2$ and $X_3$ given $X_1$):**
-$$\begin{aligned}
-r_{23.1} &= \frac{0.4 - (0.7 \cdot 0.61)}{\sqrt{(1 - 0.7^2)(1 - 0.61^2)}} \\
-&= \frac{0.4 - 0.427}{\sqrt{0.51 \cdot 0.6279}} \\
-&= \frac{-0.027}{0.5659} = -0.0477
-\end{aligned}$$
-$$\boxed{r_{23.1} = -0.0477}$$
+**i) r₂₃.₁ (Correlation between X₂ and X₃, removing effect of X₁):**
+```
+         0.4 - (0.7 × 0.61)
+r₂₃.₁ = ─────────────────────────────
+         √[(1 - 0.49)(1 - 0.3721)]
 
-- **Coefficient $r_{13.2}$ (Correlation between $X_1$ and $X_3$ given $X_2$):**
-$$\begin{aligned}
-r_{13.2} &= \frac{0.61 - (0.7 \cdot 0.4)}{\sqrt{(1 - 0.7^2)(1 - 0.4^2)}} \\
-&= \frac{0.61 - 0.28}{\sqrt{0.51 \cdot 0.84}} \\
-&= \frac{0.33}{0.6545} = 0.5042
-\end{aligned}$$
-$$\boxed{r_{13.2} = 0.5042}$$
+         0.4 - 0.427
+       = ──────────────────
+         √[0.51 × 0.6279]
 
-- **Coefficient $r_{12.3}$ (Correlation between $X_1$ and $X_2$ given $X_3$):**
-$$\begin{aligned}
-r_{12.3} &= \frac{0.7 - (0.61 \cdot 0.4)}{\sqrt{(1 - 0.61^2)(1 - 0.4^2)}} \\
-&= \frac{0.7 - 0.244}{\sqrt{0.6279 \cdot 0.84}} \\
-&= \frac{0.456}{0.7262} = 0.6280
-\end{aligned}$$
-$$\boxed{r_{12.3} = 0.6280}$$
+         -0.027
+       = ────────
+         √0.3202
+
+         -0.027
+       = ────────
+          0.5659
+
+       = -0.0477
+```
+```
+┌─────────────────────────┐
+│  r₂₃.₁ = -0.0477       │
+└─────────────────────────┘
+```
+
+**ii) r₁₃.₂ (Correlation between X₁ and X₃, removing effect of X₂):**
+```
+         0.61 - (0.7 × 0.4)
+r₁₃.₂ = ─────────────────────────────
+         √[(1 - 0.49)(1 - 0.16)]
+
+         0.61 - 0.28
+       = ──────────────────
+         √[0.51 × 0.84]
+
+         0.33
+       = ────────
+         √0.4284
+
+         0.33
+       = ────────
+         0.6545
+
+       = 0.5042
+```
+```
+┌─────────────────────────┐
+│  r₁₃.₂ = 0.5042        │
+└─────────────────────────┘
+```
+
+**iii) r₁₂.₃ (Correlation between X₁ and X₂, removing effect of X₃):**
+```
+         0.7 - (0.61 × 0.4)
+r₁₂.₃ = ─────────────────────────────
+         √[(1 - 0.3721)(1 - 0.16)]
+
+         0.7 - 0.244
+       = ──────────────────
+         √[0.6279 × 0.84]
+
+         0.456
+       = ────────
+         √0.5274
+
+         0.456
+       = ────────
+         0.7262
+
+       = 0.6280
+```
+```
+┌─────────────────────────┐
+│  r₁₂.₃ = 0.6280        │
+└─────────────────────────┘
+```
 
 ### Interpretation
-- $r_{23.1} \approx -0.048$: Almost **no correlation** between $X_2$ and $X_3$ when $X_1$ is constant.
-- $r_{13.2} \approx 0.504$: **Moderate positive** correlation between $X_1$ and $X_3$ when $X_2$ is constant.
-- $r_{12.3} \approx 0.628$: **Strong positive** correlation between $X_1$ and $X_2$ when $X_3$ is constant.
+- r₂₃.₁ ≈ -0.048 → Almost **no correlation** between X₂ and X₃ when X₁ is held constant
+- r₁₃.₂ ≈ 0.504 → **Moderate positive** correlation between X₁ and X₃ when X₂ is held constant
+- r₁₂.₃ ≈ 0.628 → **Strong positive** correlation between X₁ and X₂ when X₃ is held constant
 
 ---
 
@@ -316,7 +442,11 @@ $$\boxed{r_{12.3} = 0.6280}$$
 **Definition:** The partial regression coefficient **b₁₂.₃** measures the **change in X₁ per unit change in X₂**, while **keeping X₃ constant**.
 
 **Formula:**
-$$b_{12.3} = \frac{r_{12} - r_{13} \cdot r_{23}}{1 - r_{23}^2} \times \frac{\sigma_1}{\sigma_2}$$
+```
+            r₁₂ - r₁₃ × r₂₃       σ₁
+b₁₂.₃ = ────────────────────── × ────
+             1 - r₂₃²              σ₂
+```
 
 **Key Points:**
 - Measures the **net effect** of one independent variable on the dependent variable
@@ -329,7 +459,11 @@ $$b_{12.3} = \frac{r_{12} - r_{13} \cdot r_{23}}{1 - r_{23}^2} \times \frac{\sig
 **Definition:** The partial correlation coefficient **r₁₂.₃** measures the **linear relationship between X₁ and X₂** after **removing (controlling for) the effect of X₃**.
 
 **Formula:**
-$$r_{12.3} = \frac{r_{12} - r_{13} \cdot r_{23}}{\sqrt{(1-r_{13}^2)(1-r_{23}^2)}}$$
+```
+            r₁₂ - r₁₃ × r₂₃
+r₁₂.₃ = ─────────────────────────────
+         √[(1 - r₁₃²)(1 - r₂₃²)]
+```
 
 **Key Points:**
 - Measures **net correlation** between two variables after eliminating effect of others
@@ -342,7 +476,13 @@ $$r_{12.3} = \frac{r_{12} - r_{13} \cdot r_{23}}{\sqrt{(1-r_{13}^2)(1-r_{23}^2)}
 **Definition:** The multiple correlation coefficient **R₁.₂₃** measures the **strength of linear relationship** between one dependent variable (X₁) and **two or more independent variables** (X₂, X₃) **simultaneously**.
 
 **Formula:**
-$$R_{1.23} = \sqrt{\frac{r_{12}^2 + r_{13}^2 - 2r_{12} \cdot r_{13} \cdot r_{23}}{1 - r_{23}^2}}$$
+```
+              ┌─────────────────────────────────────┐
+              │  r₁₂² + r₁₃² - 2×r₁₂×r₁₃×r₂₃     │
+R₁.₂₃ = √   │ ─────────────────────────────────── │
+              │           1 - r₂₃²                  │
+              └─────────────────────────────────────┘
+```
 
 **Key Points:**
 - **Range:** 0 ≤ R₁.₂₃ ≤ 1 (always non-negative)
@@ -372,9 +512,14 @@ Multiple Correlation (R₁.₂₃) ← overall fit of regression
 
 ### (1) Population Mean (Point Estimate)
 
-$$\bar{X} = \frac{\sum X_i}{n} = \frac{6 + 10 + 13 + 14 + 18 + 20}{6} = \frac{81}{6} = 13.5$$
-
-$$\boxed{\bar{X} = 13.5}$$
+```
+X̄ = ΣXᵢ / n = (6 + 10 + 13 + 14 + 18 + 20) / 6 = 81 / 6 = 13.5
+```
+```
+┌──────────────────┐
+│  X̄ = 13.5        │
+└──────────────────┘
+```
 
 ### (2) Population Standard Deviation (Point Estimate)
 
@@ -390,22 +535,39 @@ $$\boxed{\bar{X} = 13.5}$$
 
 **Sample Standard Deviation (s):**
 
-$$s = \sqrt{\frac{\sum(X_i - \bar{X})^2}{n-1}} = \sqrt{\frac{131.50}{5}} = \sqrt{26.3} = 5.128$$
-
-$$\boxed{s = 5.128}$$
+```
+s = √[ Σ(Xᵢ - X̄)² / (n-1) ]
+  = √[ 131.50 / 5 ]
+  = √26.3
+  = 5.128
+```
+```
+┌──────────────────┐
+│  s = 5.128       │
+└──────────────────┘
+```
 
 > [!NOTE]
 > We use (n-1) in denominator for **unbiased** estimate of population variance. If asked for population SD directly, some use n in denominator: σ̂ = √(131.50/6) = √21.917 = 4.682
 
 ### (3) Standard Error of Mean
-$$SE(\bar{X}) = \frac{s}{\sqrt{n}}$$
+
+**Formula:**
+```
+SE(X̄) = s / √n
+```
 
 **Substituting:**
-$$SE(\bar{X}) = \frac{5.128}{\sqrt{6}} = \frac{5.128}{2.449} = 2.094$$
+```
+SE(X̄) = 5.128 / √6 = 5.128 / 2.449 = 2.094
+```
+```
+┌──────────────────────┐
+│  SE(X̄) = 2.094       │
+└──────────────────────┘
+```
 
-$$\boxed{SE(\bar{X}) = 2.094}$$
-
-**Interpretation:** The sample mean of 13.5 is expected to deviate from the true population mean by approximately $\pm 2.094$ units.
+**Interpretation:** The sample mean of 13.5 is expected to deviate from the true population mean by approximately ±2.094 units.
 
 ---
 
@@ -442,7 +604,9 @@ $$\boxed{SE(\bar{X}) = 2.094}$$
 | **Disadvantage** | More complex to compute |
 
 **Formula for Confidence Interval for Mean (σ known):**
-$$\bar{X} - Z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}} \leq \mu \leq \bar{X} + Z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}}$$
+```
+X̄ - Z(α/2) × (σ/√n)  ≤  μ  ≤  X̄ + Z(α/2) × (σ/√n)
+```
 
 ### Comparison Table
 
@@ -450,7 +614,7 @@ $$\bar{X} - Z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}} \leq \mu \leq \bar{X} + Z
 |-----------|-----------------|-------------------|
 | **Output** | Single value | Range of values |
 | **Precision** | No measure of precision | Confidence level given |
-| **Formula** | X̄, S², p̂ | (X̄ ± Zα/2 · σ/√n) |
+| **Formula** | X̄, S², p̂ | X̄ ± Z(α/2) × σ/√n |
 | **Information** | Less informative | More informative |
 | **Computation** | Simple | More complex |
 | **Example** | μ̂ = 13.5 | μ ∈ (11.4, 15.6) at 95% |
@@ -473,33 +637,45 @@ Diagram: Types of Estimation
 ## C5-Q3) Prove: Sample Mean is an Unbiased Estimator of Population Mean
 
 ### Statement
-Prove that $E(\bar{X}) = \mu$, i.e., the expected value of the sample mean equals the population mean.
+Prove that **E(X̄) = μ**, i.e., the expected value of the sample mean equals the population mean.
 
 ### Proof
 
-**Let** $X_1, X_2, \dots, X_n$ be a random sample from a population with mean $\mu$ and variance $\sigma^2$.
+**Let** X₁, X₂, ..., Xₙ be a random sample from a population with mean μ and variance σ².
 
 **Step 1:** Define the sample mean:
-$$\bar{X} = \frac{1}{n}\sum_{i=1}^{n} X_i$$
+```
+X̄ = (1/n) × Σ Xᵢ  (i = 1 to n)
+```
 
 **Step 2:** Take expectation on both sides:
-$$E(\bar{X}) = E\left(\frac{1}{n}\sum_{i=1}^{n} X_i\right)$$
+```
+E(X̄) = E[ (1/n) × Σ Xᵢ ]
+```
 
-**Step 3:** Use linearity of expectation:
-$$E(\bar{X}) = \frac{1}{n}\sum_{i=1}^{n} E(X_i)$$
+**Step 3:** Use linearity of expectation (E of sum = sum of E):
+```
+E(X̄) = (1/n) × Σ E(Xᵢ)
+```
 
-**Step 4:** Since each $X_i$ is from the same population, $E(X_i) = \mu$:
-$$\begin{aligned}
-E(\bar{X}) &= \frac{1}{n} \underbrace{(\mu + \mu + \dots + \mu)}_{n \text{ times}} \\
-&= \frac{1}{n} \cdot n\mu = \mu
-\end{aligned}$$
+**Step 4:** Since each Xᵢ comes from the same population, E(Xᵢ) = μ for all i:
+```
+E(X̄) = (1/n) × (μ + μ + ... + μ)    [n times]
+      = (1/n) × nμ
+      = μ
+```
 
 ### Conclusion
-$$\boxed{E(\bar{X}) = \mu}$$
+```
+┌──────────────────────┐
+│  E(X̄) = μ            │
+│                      │
+│  ∴ X̄ is UNBIASED     │
+│  estimator of μ      │
+└──────────────────────┘
+```
 
-Since $E(\bar{X}) = \mu$, the sample mean $\bar{X}$ is an **unbiased estimator** of the population mean $\mu$.
-
-**Consistency Check:** Since $\text{Var}(\bar{X}) = \frac{\sigma^2}{n}$, as $n \to \infty$, $\text{Var}(\bar{X}) \to 0$. Thus, $\bar{X}$ is also a **consistent** estimator.
+**Consistency Check:** Since Var(X̄) = σ²/n → 0 as n → ∞, X̄ is also a **consistent** estimator.
 
 ---
 
@@ -515,41 +691,33 @@ Since $E(\bar{X}) = \mu$, the sample mean $\bar{X}$ is an **unbiased estimator**
 
 | # | Property | Definition | Mathematical Condition |
 |---|----------|-----------|----------------------|
-| 1 | **Unbiasedness** | The expected value of the estimator equals the parameter | E(θ̂) = θ |
-| 2 | **Consistency** | As sample size n → ∞, the estimator converges to the true value | P(\|θ̂ - θ\| > ε) → 0 as n → ∞ |
-| 3 | **Efficiency** | Among all unbiased estimators, it has the **minimum variance** | Var(θ̂) ≤ Var(θ̃) for all unbiased θ̃ |
-| 4 | **Sufficiency** | The estimator uses **all information** in the sample about the parameter | T(X) is sufficient if P(X\|T) doesn't depend on θ |
-| 5 | **Minimum Variance** | Has the smallest variance among the class of unbiased estimators (MVUE) | Achieves Cramér-Rao Lower Bound |
+| 1 | **Unbiasedness** | Expected value of estimator = parameter | E(θ̂) = θ |
+| 2 | **Consistency** | As n → ∞, estimator converges to true value | P(\|θ̂ - θ\| > ε) → 0 as n → ∞ |
+| 3 | **Efficiency** | Has **minimum variance** among all unbiased estimators | Var(θ̂) ≤ Var(θ̃) for all unbiased θ̃ |
+| 4 | **Sufficiency** | Uses **all information** in the sample about θ | P(X\|T) doesn't depend on θ |
+| 5 | **Min. Variance** | Smallest variance among unbiased estimators (MVUE) | Achieves Cramér-Rao Lower Bound |
 
 ### Detailed Explanation with Examples
 
 **1. Unbiasedness:**
-```
-X̄ is unbiased for μ because E(X̄) = μ
-S² = Σ(Xᵢ-X̄)²/(n-1) is unbiased for σ² because E(S²) = σ²
-BUT: S is BIASED for σ (E(S) ≠ σ)
-```
+- X̄ is unbiased for μ because E(X̄) = μ
+- S² = Σ(Xᵢ-X̄)²/(n-1) is unbiased for σ² because E(S²) = σ²
+- **BUT:** S is BIASED for σ → E(S) ≠ σ
 
 **2. Consistency:**
-```
-X̄ is consistent because Var(X̄) = σ²/n → 0 as n → ∞
-By Chebyshev's inequality: P(|X̄ - μ| > ε) ≤ σ²/(nε²) → 0
-```
+- X̄ is consistent because Var(X̄) = σ²/n → 0 as n → ∞
+- By Chebyshev's inequality: P(|X̄ - μ| > ε) ≤ σ²/(nε²) → 0
 
 **3. Efficiency:**
-```
-Among all unbiased estimators of μ:
-- X̄ has minimum variance = σ²/n
-- Median has higher variance = πσ²/(2n)
-∴ X̄ is more efficient than Median
-Relative Efficiency = Var(Median)/Var(X̄) = π/2 ≈ 1.57
-```
+- Among all unbiased estimators of μ:
+  - X̄ has minimum variance = σ²/n
+  - Median has higher variance = πσ²/(2n)
+  - ∴ X̄ is more efficient than Median
+  - Relative Efficiency = Var(Median)/Var(X̄) = π/2 ≈ 1.57
 
 **4. Sufficiency:**
-```
-For Normal distribution: X̄ is sufficient for μ
-It captures ALL information about μ from the sample
-```
+- For Normal distribution: X̄ is sufficient for μ
+- It captures ALL information about μ from the sample
 
 ```
 Diagram: Properties of Good Estimator
@@ -571,36 +739,46 @@ The **Maximum Likelihood Estimation (MLE)** method estimates the parameter θ by
 
 ### Steps of MLE Method
 
-**Step 1:** Write the **likelihood function** L(θ):
-$$L(\theta) = \prod_{i=1}^{n} f(x_i; \theta)$$
-
-**Step 2:** Take the **log-likelihood** (easier to work with):
-$$\ln L(\theta) = \sum_{i=1}^{n} \ln f(x_i; \theta)$$
-
-**Step 3:** Differentiate w.r.t. θ and set equal to **zero**:
-$$\frac{d}{d\theta} \ln L(\theta) = 0$$
-
-**Step 4:** Solve for θ̂ (the MLE)
-
-**Step 5:** Verify it's a **maximum** (second derivative < 0)
+| Step | Action |
+|------|--------|
+| **Step 1** | Write the **likelihood function**: L(θ) = ∏ f(xᵢ; θ) |
+| **Step 2** | Take the **log-likelihood**: ln L(θ) = Σ ln f(xᵢ; θ) |
+| **Step 3** | **Differentiate** w.r.t. θ and set = 0: d(ln L)/dθ = 0 |
+| **Step 4** | **Solve** for θ̂ (the MLE) |
+| **Step 5** | Verify it's a **maximum** (second derivative < 0) |
 
 ### Example: MLE for Normal Distribution Mean
 
-**Given:** $X_1, X_2, \dots, X_n \sim N(\mu, \sigma^2)$, find the MLE of $\mu$.
+**Given:** X₁, X₂, ..., Xₙ ~ N(μ, σ²), find MLE of μ
 
-**Step 1: Likelihood function $L(\mu)$:**
-$$L(\mu) = \prod_{i=1}^{n} \frac{1}{\sqrt{2\pi}\sigma} \exp\left(-\frac{(x_i-\mu)^2}{2\sigma^2}\right)$$
+**Step 1:** Likelihood function:
+```
+L(μ) = ∏ (1/√(2π)σ) × exp[-(xᵢ - μ)² / (2σ²)]
+       i=1 to n
+```
 
-**Step 2: Log-likelihood $\ln L(\mu)$:**
-$$\ln L(\mu) = -\frac{n}{2}\ln(2\pi) - n\ln(\sigma) - \frac{1}{2\sigma^2}\sum_{i=1}^n(x_i - \mu)^2$$
+**Step 2:** Log-likelihood:
+```
+ln L(μ) = -(n/2) ln(2π) - n ln(σ) - (1/2σ²) × Σ(xᵢ - μ)²
+```
 
-**Step 3: Differentiate w.r.t. $\mu$ and set to zero:**
-$$\frac{\partial \ln L}{\partial \mu} = \frac{1}{\sigma^2}\sum_{i=1}^n(x_i - \mu) = 0$$
+**Step 3:** Differentiate w.r.t. μ and set to zero:
+```
+∂(ln L)/∂μ = (1/σ²) × Σ(xᵢ - μ) = 0
+```
 
-**Step 4: Solve for $\hat{\mu}$:**
-$$\sum x_i - n\mu = 0 \implies \hat{\mu} = \frac{\sum x_i}{n} = \bar{X}$$
+**Step 4:** Solve:
+```
+Σxᵢ - nμ = 0
 
-$$\boxed{\hat{\mu}_{MLE} = \bar{X}}$$
+μ̂ = Σxᵢ / n = X̄
+```
+
+```
+┌──────────────────────┐
+│  μ̂(MLE) = X̄          │
+└──────────────────────┘
+```
 
 ### Advantages of MLE
 
@@ -629,37 +807,56 @@ $$\boxed{\hat{\mu}_{MLE} = \bar{X}}$$
 ## C5-Q6) Prove: Sample Variance S² is an Unbiased Estimator of σ²
 
 ### Statement
-Show that $E(S^2) = \sigma^2$ where $S^2 = \frac{\sum(X_i - \bar{X})^2}{n-1}$
+Show that **E(S²) = σ²** where S² = Σ(Xᵢ - X̄)² / (n-1)
 
 ### Proof
 
 **Step 1:** Expand the sum of squares:
-$$\sum_{i=1}^{n}(X_i - \bar{X})^2 = \sum_{i=1}^{n}X_i^2 - n\bar{X}^2$$
+```
+Σ(Xᵢ - X̄)² = ΣXᵢ² - nX̄²
+```
 
-**Step 2:** Apply the expectation operator:
-$$E\left[\sum(X_i - \bar{X})^2\right] = \sum E(X_i^2) - nE(\bar{X}^2)$$
+**Step 2:** Take Expectation:
+```
+E[Σ(Xᵢ - X̄)²] = Σ E(Xᵢ²) - n × E(X̄²)
+```
 
-**Step 3:** Use the identity $E(X^2) = \text{Var}(X) + [E(X)]^2$:
-- $E(X_i^2) = \sigma^2 + \mu^2$
-- $E(\bar{X}^2) = \frac{\sigma^2}{n} + \mu^2$
+**Step 3:** Use the identity: E(X²) = Var(X) + [E(X)]²
+```
+E(Xᵢ²) = Var(Xᵢ) + [E(Xᵢ)]² = σ² + μ²
 
-**Step 4:** Substitute and simplify:
-$$\begin{aligned}
-E\left[\sum(X_i - \bar{X})^2\right] &= n(\sigma^2 + \mu^2) - n\left(\frac{\sigma^2}{n} + \mu^2\right) \\
-&= n\sigma^2 + n\mu^2 - \sigma^2 - n\mu^2 \\
-&= (n-1)\sigma^2
-\end{aligned}$$
+E(X̄²) = Var(X̄) + [E(X̄)]² = σ²/n + μ²
+```
 
-**Step 5:** Final confirmation:
-$$E(S^2) = E\left[\frac{\sum(X_i - \bar{X})^2}{n-1}\right] = \frac{(n-1)\sigma^2}{n-1} = \sigma^2$$
+**Step 4:** Substitute:
+```
+E[Σ(Xᵢ - X̄)²] = n(σ² + μ²) - n(σ²/n + μ²)
+                = nσ² + nμ² - σ² - nμ²
+                = nσ² - σ²
+                = (n-1)σ²
+```
+
+**Step 5:** Therefore:
+```
+E[S²] = E[ Σ(Xᵢ - X̄)² / (n-1) ]
+      = (n-1)σ² / (n-1)
+      = σ²
+```
 
 ### Conclusion
-$$\boxed{E(S^2) = \sigma^2}$$
-
-Hence, $S^2 = \frac{\sum(X_i - \bar{X})^2}{n-1}$ is an **unbiased estimator** of the population variance $\sigma^2$.
+```
+┌──────────────────────────┐
+│  E(S²) = σ²              │
+│                          │
+│  ∴ S² is UNBIASED        │
+│  estimator of σ²         │
+└──────────────────────────┘
+```
 
 > [!IMPORTANT]
-> **Why $n-1$?** If we divided by $n$, the expectation would be $\frac{n-1}{n}\sigma^2$, which underestimates the true variance. Dividing by $n-1$ (Bessel's correction) removes this bias.
+> **Why (n-1) and not n?** If we divided by n, the expectation would be:
+> E[Σ(Xᵢ-X̄)²/n] = (n-1)σ²/n ≠ σ² → This is BIASED (underestimates σ²).
+> Dividing by (n-1) is called **Bessel's correction** and removes this bias.
 
 ---
 
@@ -698,9 +895,9 @@ Step 7: State conclusion in context
 
 | Test Type | H₁ Form | Rejection Region | Example |
 |-----------|---------|-----------------|---------|
-| **Two-tailed** | H₁: μ ≠ μ₀ | Both tails | Z < -Zα/2 or Z > Zα/2 |
-| **Right-tailed** | H₁: μ > μ₀ | Right tail only | Z > Zα |
-| **Left-tailed** | H₁: μ < μ₀ | Left tail only | Z < -Zα |
+| **Two-tailed** | H₁: μ ≠ μ₀ | Both tails | Z < -Z(α/2) or Z > Z(α/2) |
+| **Right-tailed** | H₁: μ > μ₀ | Right tail only | Z > Z(α) |
+| **Left-tailed** | H₁: μ < μ₀ | Left tail only | Z < -Z(α) |
 
 ```
 Diagram: Hypothesis Testing Process
@@ -762,7 +959,7 @@ State H₀, H₁  →  Choose α  →  Select Test  →  Compute Test  →  Deci
 
 | Concept | Definition | Formula |
 |---------|-----------|---------|
-| **Significance Level (α)** | Maximum probability of Type I error we are willing to accept | Usually α = 0.01 or 0.05 |
+| **Significance Level (α)** | Maximum probability of Type I error we allow | Usually α = 0.01 or 0.05 |
 | **Power of Test** | Probability of correctly rejecting a false H₀ | Power = 1 - β |
 | **Confidence Level** | Probability of correctly not rejecting a true H₀ | 1 - α |
 
@@ -803,7 +1000,9 @@ Reject  │ (1-α)    │ Error β   │
 ```
 
 > [!WARNING]
-> **Common Exam Mistake:** Students confuse Type I and Type II. Remember: Type **I** = **I**ncorrectly rejecting truth. Type **II** = **II**ncorrectly accepting falsehood.
+> **Common Exam Mistake:** Students confuse Type I and Type II. Remember:
+> - Type **I** = **I**ncorrectly rejecting truth (False Positive)
+> - Type **II** = **II**ncorrectly accepting falsehood (False Negative)
 
 ---
 
@@ -815,7 +1014,11 @@ The **Neyman-Pearson Lemma** provides the **most powerful test** for testing a *
 ### Formal Statement
 For testing H₀: θ = θ₀ vs H₁: θ = θ₁, the **most powerful test** of size α has a **critical region C** defined by:
 
-$$\frac{L(\theta_1)}{L(\theta_0)} \geq k$$
+```
+L(θ₁)
+────── ≥ k
+L(θ₀)
+```
 
 where:
 - L(θ₁) = Likelihood function under H₁
@@ -852,16 +1055,20 @@ where:
 - H₁: μ ≠ μ₀ (two-tailed) OR μ > μ₀ OR μ < μ₀
 
 **Test Statistic:**
-$$Z_{calc} = \frac{\bar{X} - \mu_0}{\sigma / \sqrt{n}}$$
+```
+         X̄ - μ₀
+Z_calc = ─────────
+          σ / √n
+```
 
 **Decision Rule:**
-- Two-tailed: Reject H₀ if |Z_calc| > Z_{α/2}
-- Right-tailed: Reject H₀ if Z_calc > Z_α
-- Left-tailed: Reject H₀ if Z_calc < -Z_α
+- Two-tailed: Reject H₀ if |Z_calc| > Z(α/2)
+- Right-tailed: Reject H₀ if Z_calc > Z(α)
+- Left-tailed: Reject H₀ if Z_calc < -Z(α)
 
 **Critical Values:**
-| α | Two-tailed (Z_{α/2}) | One-tailed (Z_α) |
-|---|----------------------|-------------------|
+| α | Two-tailed Z(α/2) | One-tailed Z(α) |
+|---|---------------------|-----------------|
 | 0.05 | ±1.96 | ±1.645 |
 | 0.01 | ±2.576 | ±2.326 |
 
@@ -874,7 +1081,11 @@ $$Z_{calc} = \frac{\bar{X} - \mu_0}{\sigma / \sqrt{n}}$$
 - H₁: μ₁ ≠ μ₂
 
 **Test Statistic:**
-$$Z_{calc} = \frac{(\bar{X}_1 - \bar{X}_2) - 0}{\sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}}$$
+```
+            (X̄₁ - X̄₂) - 0
+Z_calc = ─────────────────────
+          √(σ₁²/n₁ + σ₂²/n₂)
+```
 
 **Decision:** Same as single mean Z-test
 
@@ -888,17 +1099,21 @@ $$Z_{calc} = \frac{(\bar{X}_1 - \bar{X}_2) - 0}{\sqrt{\frac{\sigma_1^2}{n_1} + \
 - Sample size: n = 6
 - Sample values: 24, 26, 30, 20, 20, 18
 - Significance level: α = 0.01 (1%)
+- Table values: t(0.01) = 4.032 (df=5), 3.707 (df=6), 3.499 (df=7)
 
 ### Step 1: State Hypotheses
 ```
-H₀: μ = 25 (Manufacturer's claim is valid)
-H₁: μ ≠ 25 (Manufacturer's claim is NOT valid)
+H₀: μ = 25   (Manufacturer's claim is valid)
+H₁: μ ≠ 25   (Manufacturer's claim is NOT valid)
+
+This is a TWO-TAILED test.
 ```
-This is a **two-tailed test**.
 
 ### Step 2: Compute Sample Mean
 
-$$\bar{X} = \frac{24 + 26 + 30 + 20 + 20 + 18}{6} = \frac{138}{6} = 23$$
+```
+X̄ = (24 + 26 + 30 + 20 + 20 + 18) / 6 = 138 / 6 = 23
+```
 
 ### Step 3: Compute Sample Standard Deviation
 
@@ -912,39 +1127,49 @@ $$\bar{X} = \frac{24 + 26 + 30 + 20 + 20 + 18}{6} = \frac{138}{6} = 23$$
 | 18 | -5 | 25 |
 | **Σ** | **0** | **102** |
 
-$$S = \sqrt{\frac{\sum(X_i - \bar{X})^2}{n-1}} = \sqrt{\frac{102}{5}} = \sqrt{20.4} = 4.517$$
+```
+S = √[ Σ(Xᵢ - X̄)² / (n-1) ] = √(102/5) = √20.4 = 4.517
+```
 
 ### Step 4: Compute Test Statistic
 
-Since $n = 6$ (small sample, $\sigma$ unknown), we use a one-sample **t-test**:
+Since n = 6 (small sample, σ unknown), we use a one-sample **t-test**:
 
-$$\begin{aligned}
-t_{calc} &= \frac{\bar{X} - \mu_0}{S / \sqrt{n}} \\
-&= \frac{23 - 25}{4.517 / \sqrt{6}} \\
-&= \frac{-2}{1.844} = -1.085
-\end{aligned}$$
+```
+              X̄ - μ₀       23 - 25       -2        -2
+t_calc =  ───────── = ──────────── = ────────── = ───── = -1.085
+            S / √n     4.517 / √6    4.517/2.449   1.844
+```
 
 ### Step 5: Find Critical Value
 
-- **Degrees of freedom (df):** $n - 1 = 6 - 1 = 5$
-- **Significance level ($\alpha$):** 0.01, two-tailed.
-- From Student's t-table, $t_{critical}$ at $df=5, \alpha=0.01$ is **$\pm 4.032$**.
+```
+Degrees of freedom (df) = n - 1 = 6 - 1 = 5
+α = 0.01, two-tailed test
+t_critical at df = 5, α = 0.01 (two-tailed) = ±4.032
+```
 
 ### Step 6: Decision
 
-$$\begin{aligned}
-|t_{calc}| &= 1.085 \\
-t_{critical} &= 4.032 \\
-\text{Condition: } &|t_{calc}| < t_{critical}
-\end{aligned}$$
+```
+|t_calc|   = |-1.085| = 1.085
+t_critical = 4.032
 
-$$\implies \text{FAIL TO REJECT } H_0$$
+Since |t_calc| (1.085) < t_critical (4.032)
+
+→ We FAIL TO REJECT H₀
+```
 
 ### Step 7: Conclusion
 
-$$\boxed{\text{The manufacturer's claim is VALID at 1\% level of significance.}}$$
-
-There is **not enough statistical evidence** to reject the claim that the mean bulb life is 25 months. This means the manufacturer's claim holds true based on the provided sample.
+```
+┌──────────────────────────────────────────────────────────────────┐
+│  The manufacturer's claim is VALID at 1% level of significance. │
+│                                                                  │
+│  There is NOT enough statistical evidence to reject the claim    │
+│  that the mean bulb life is 25 months.                          │
+└──────────────────────────────────────────────────────────────────┘
+```
 
 ```
 Diagram: t-Test Decision
@@ -972,19 +1197,19 @@ Diagram: t-Test Decision
 | Topic | Key Formula / Points |
 |-------|---------------------|
 | **Multiple Regression** | Ŷ = a + b₁X₁ + b₂X₂; Use 3 normal equations |
-| **Partial Regression Coeff** | b₁₂.₃ = [(r₁₂ - r₁₃·r₂₃)/(1-r₂₃²)] × (σ₁/σ₂) |
-| **Partial Correlation** | r₁₂.₃ = (r₁₂ - r₁₃·r₂₃)/√[(1-r₁₃²)(1-r₂₃²)] |
-| **Multiple Correlation** | R₁.₂₃ = √[(r₁₂² + r₁₃² - 2r₁₂·r₁₃·r₂₃)/(1-r₂₃²)] |
+| **Partial Regression Coeff** | b₁₂.₃ = [(r₁₂ - r₁₃×r₂₃)/(1-r₂₃²)] × (σ₁/σ₂) |
+| **Partial Correlation** | r₁₂.₃ = (r₁₂ - r₁₃×r₂₃) / √[(1-r₁₃²)(1-r₂₃²)] |
+| **Multiple Correlation** | R₁.₂₃ = √[(r₁₂² + r₁₃² - 2r₁₂×r₁₃×r₂₃) / (1-r₂₃²)] |
 | **Point Estimation** | Single value; Properties: Unbiased, Consistent, Efficient, Sufficient |
-| **Interval Estimation** | X̄ ± Zα/2 · σ/√n |
+| **Interval Estimation** | X̄ ± Z(α/2) × σ/√n |
 | **Unbiased Estimator** | E(θ̂) = θ; X̄ is unbiased for μ; S² is unbiased for σ² |
 | **MLE** | Maximize L(θ) = ∏f(xᵢ;θ); Take log, differentiate, set = 0 |
 | **Hypothesis Testing** | State H₀/H₁ → Choose α → Compute test stat → Compare with critical → Decide |
 | **Type I Error (α)** | Reject H₀ when H₀ is TRUE (False Positive) |
 | **Type II Error (β)** | Fail to reject H₀ when H₀ is FALSE (False Negative) |
 | **Power of Test** | 1 - β (ability to detect false H₀) |
-| **Z-Test** | Z = (X̄ - μ₀)/(σ/√n); Use when σ known, n ≥ 30 |
-| **t-Test** | t = (X̄ - μ₀)/(S/√n); Use when σ unknown, n < 30 |
+| **Z-Test** | Z = (X̄ - μ₀) / (σ/√n); Use when σ known, n ≥ 30 |
+| **t-Test** | t = (X̄ - μ₀) / (S/√n); Use when σ unknown, n < 30 |
 | **Neyman-Pearson** | L(θ₁)/L(θ₀) ≥ k gives most powerful test |
 
 ---
@@ -1002,4 +1227,4 @@ Diagram: t-Test Decision
 ---
 
 *Prepared for: MU Sem 6 Quantitative Analysis (QA) PT-II | Computer Engineering | REV-2019 C-Scheme*
-*Last Updated: April 5, 2026*
+*Last Updated: April 6, 2026*
