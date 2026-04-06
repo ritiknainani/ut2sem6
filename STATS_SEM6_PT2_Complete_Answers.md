@@ -512,12 +512,12 @@ Multiple Correlation (R₁.₂₃) ← overall fit of regression
 | 2 | 15 | 15 | 6 |
 | 3 | 14 | 15 | 10 |
 | 4 | 19 | 10 | 21 |
-| 5 | 8 | 13 | 13 |
-| 6 | 16 | 15 | 9 |
-| 7 | 15 | 11 | 25 |
-| 8 | 25 | 6 | 10 |
-| 9 | 10 | 15 | 8 |
-| 10 | 11 | 7 | 7 |
+| 5 | 8 | 13 | 8 |
+| 6 | 16 | 15 | 13 |
+| 7 | 15 | 11 | 9 |
+| 8 | 25 | 6 | 25 |
+| 9 | 10 | 15 | 10 |
+| 10 | 11 | 7 | 8 |
 
 **Find:** (a) Regression Ŷ = a + b₁X₁ + b₂X₂, (b) R², (c) F-test at α = 0.01 (F_critical = 9.55)
 
@@ -533,19 +533,19 @@ Multiple Correlation (R₁.₂₃) ← overall fit of regression
 | 2 | 15 | 15 | 6 | 225 | 225 | 36 | 225 | 90 | 90 |
 | 3 | 14 | 15 | 10 | 196 | 225 | 100 | 210 | 140 | 150 |
 | 4 | 19 | 10 | 21 | 361 | 100 | 441 | 190 | 399 | 210 |
-| 5 | 8 | 13 | 13 | 64 | 169 | 169 | 104 | 104 | 169 |
-| 6 | 16 | 15 | 9 | 256 | 225 | 81 | 240 | 144 | 135 |
-| 7 | 15 | 11 | 25 | 225 | 121 | 625 | 165 | 375 | 275 |
-| 8 | 25 | 6 | 10 | 625 | 36 | 100 | 150 | 250 | 60 |
-| 9 | 10 | 15 | 8 | 100 | 225 | 64 | 150 | 80 | 120 |
-| 10 | 11 | 7 | 7 | 121 | 49 | 49 | 77 | 77 | 49 |
-| **Σ** | **145** | **124** | **119** | **2317** | **1664** | **1765** | **1715** | **1779** | **1428** |
+| 5 | 8 | 13 | 8 | 64 | 169 | 64 | 104 | 64 | 104 |
+| 6 | 16 | 15 | 13 | 256 | 225 | 169 | 240 | 208 | 195 |
+| 7 | 15 | 11 | 9 | 225 | 121 | 81 | 165 | 135 | 99 |
+| 8 | 25 | 6 | 25 | 625 | 36 | 625 | 150 | 625 | 150 |
+| 9 | 10 | 15 | 10 | 100 | 225 | 100 | 150 | 100 | 150 |
+| 10 | 11 | 7 | 8 | 121 | 49 | 64 | 77 | 88 | 56 |
+| **Σ** | **145** | **124** | **120** | **2317** | **1664** | **1780** | **1715** | **1969** | **1374** |
 
 **Step 2: Compute Means**
 ```
-Ȳ = 145/10 = 14.5
+Ȳ  = 145/10 = 14.5
 X̄₁ = 124/10 = 12.4
-X̄₂ = 119/10 = 11.9
+X̄₂ = 120/10 = 12.0
 ```
 
 **Step 3: Normal Equations for Ŷ = a + b₁X₁ + b₂X₂**
@@ -557,68 +557,68 @@ X̄₂ = 119/10 = 11.9
 
 Substituting:
 ```
-145  = 10a  + 124b₁  + 119b₂       ... (i)
-1715 = 124a + 1664b₁ + 1428b₂      ... (ii)
-1779 = 119a + 1428b₁ + 1765b₂      ... (iii)
+145  = 10a  + 124b₁  + 120b₂       ... (i)
+1715 = 124a + 1664b₁ + 1374b₂      ... (ii)
+1969 = 120a + 1374b₁ + 1780b₂      ... (iii)
 ```
 
 **Step 4: Eliminate 'a'**
 
-From (i): a = 14.5 - 12.4b₁ - 11.9b₂
+From (i): a = 14.5 - 12.4b₁ - 12b₂
 
 Multiply (i) by 12.4 and subtract from (ii):
 ```
 (ii) - 12.4×(i):
-1715 - 1798 = (1664 - 1537.6)b₁ + (1428 - 1475.6)b₂
--83 = 126.4b₁ - 47.6b₂              ... (iv)
+1715 - 1798 = (1664 - 1537.6)b₁ + (1374 - 1488)b₂
+-83 = 126.4b₁ - 114b₂               ... (iv)
 ```
 
-Multiply (i) by 11.9 and subtract from (iii):
+Multiply (i) by 12 and subtract from (iii):
 ```
-(iii) - 11.9×(i):
-1779 - 1725.5 = (1428 - 1475.6)b₁ + (1765 - 1416.1)b₂
-53.5 = -47.6b₁ + 348.9b₂            ... (v)
+(iii) - 12×(i):
+1969 - 1740 = (1374 - 1488)b₁ + (1780 - 1440)b₂
+229 = -114b₁ + 340b₂                ... (v)
 ```
 
 **Step 5: Solve equations (iv) and (v)**
 
-From (iv): b₁ = (-83 + 47.6b₂) / 126.4
+From (iv): b₁ = (-83 + 114b₂) / 126.4
 
 Substituting into (v):
 ```
--47.6 × (-83 + 47.6b₂) / 126.4 + 348.9b₂ = 53.5
+-114 × (-83 + 114b₂) / 126.4 + 340b₂ = 229
 
-(3950.8 - 2265.76b₂) / 126.4 + 348.9b₂ = 53.5
+(9462 - 12996b₂) / 126.4 + 340b₂ = 229
 
-31.253 - 17.925b₂ + 348.9b₂ = 53.5
+74.86 - 102.85b₂ + 340b₂ = 229
 
-330.975b₂ = 22.247
+237.15b₂ = 154.14
 
-b₂ = 22.247 / 330.975 = 0.0672
+b₂ = 154.14 / 237.15 = 0.6500
 ```
 
 ```
-b₁ = (-83 + 47.6 × 0.0672) / 126.4
-   = (-83 + 3.199) / 126.4
-   = -79.801 / 126.4
-   = -0.6314
+b₁ = (-83 + 114 × 0.6500) / 126.4
+   = (-83 + 74.1) / 126.4
+   = -8.9 / 126.4
+   = -0.0704
 ```
 
 ```
-a = 14.5 - 12.4(-0.6314) - 11.9(0.0672)
-  = 14.5 + 7.829 - 0.800
-  = 21.529
+a = 14.5 - 12.4(-0.0704) - 12(0.6500)
+  = 14.5 + 0.873 - 7.800
+  = 7.573
 ```
 
 ```
 ┌───────────────────────────────────────────────────┐
-│  Ŷ = 21.529 - 0.631 X₁ + 0.067 X₂               │
+│  Ŷ = 7.573 - 0.070 X₁ + 0.650 X₂                │
 └───────────────────────────────────────────────────┘
 ```
 
 **Interpretation:**
-- For each 1 kg increase in weight → damage decreases by ₹631 (counterintuitive — heavier = sturdier packaging?)
-- For each 1 km increase in distance → damage increases by ₹67
+- For each 1 kg ↑ in weight → damage decreases by ₹70 (heavier items may have sturdier packaging)
+- For each 1 km ↑ in distance → damage increases by ₹650 (distance is the dominant factor)
 
 ---
 
@@ -644,22 +644,22 @@ SST = ΣY² - nȲ²
 **Step 2: Compute SSR**
 ```
 ΣYX₁ - nȲX̄₁ = 1715 - 10(14.5)(12.4) = 1715 - 1798 = -83
-ΣYX₂ - nȲX̄₂ = 1779 - 10(14.5)(11.9) = 1779 - 1725.5 = 53.5
+ΣYX₂ - nȲX̄₂ = 1969 - 10(14.5)(12.0) = 1969 - 1740 = 229
 
-SSR = (-0.6314)(-83) + (0.0672)(53.5)
-    = 52.406 + 3.595
-    = 56.001
+SSR = (-0.0704)(-83) + (0.6500)(229)
+    = 5.843 + 148.85
+    = 154.693
 ```
 
 **Step 3: Compute R²**
 ```
-R² = SSR / SST = 56.001 / 214.5 = 0.261
+R² = SSR / SST = 154.693 / 214.5 = 0.721
 
 ┌───────────────────────────────────────┐
-│  R² = 0.261  (or 26.1%)              │
+│  R² = 0.721  (or 72.1%)              │
 │                                       │
-│  26.1% of variation in damage is      │
-│  explained by weight and distance.    │
+│  72.1% of the variation in damage     │
+│  is explained by weight & distance.   │
 └───────────────────────────────────────┘
 ```
 
@@ -682,38 +682,40 @@ F = ─────────────────             n = number o
 
 **Step 1: Compute SSE**
 ```
-SSE = SST - SSR = 214.5 - 56.001 = 158.499
+SSE = SST - SSR = 214.5 - 154.693 = 59.807
 ```
 
 **Step 2: Compute F-statistic**
 ```
-F_calc = (56.001 / 2) / (158.499 / 7)
-       = 28.001 / 22.643
-       = 1.237
+F_calc = (SSR / k) / (SSE / (n - k - 1))
+       = (154.693 / 2) / (59.807 / 7)
+       = 77.347 / 8.544
+       = 9.053
 ```
 
 **Step 3: Decision**
 ```
-F_calc    = 1.237
+F_calc    = 9.053
 F_critical = 9.55  (given, at α = 0.01, df₁ = 2, df₂ = 7)
 
-Since F_calc (1.237) < F_critical (9.55):
+Since F_calc (9.053) < F_critical (9.55):
 
 ┌──────────────────────────────────────────────────────────┐
 │  FAIL TO REJECT H₀                                      │
 │                                                          │
 │  The regression is NOT statistically significant         │
-│  at 1% level of significance.                           │
+│  at 1% level of significance (α = 0.01).                │
 │                                                          │
-│  The linear relationship between damage (Y) and          │
-│  weight (X₁), distance (X₂) is NOT significant.         │
+│  However, F_calc is VERY CLOSE to F_critical.            │
+│  At α = 0.05, this would likely be significant.          │
 └──────────────────────────────────────────────────────────┘
 ```
 
 > [!NOTE]
-> **Why is this result expected?** R² = 0.261 means only 26.1% of variance is explained, which is low. The F-test confirms the model doesn't fit well. In exam, always state conclusion clearly even if the regression is not significant.
+> **Key Observation:** R² = 72.1% shows distance (X₂) is the dominant factor affecting damage. F_calc (9.053) is very close to F_critical (9.55), meaning the regression is borderline — significant at 5% but not at 1%. Always state both the numerical decision AND interpretation in your answer.
 
 ---
+
 
 # CHAPTER 5: ESTIMATION THEORY
 
